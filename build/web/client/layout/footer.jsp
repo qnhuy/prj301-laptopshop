@@ -36,7 +36,7 @@
             <div class="col-lg-3 col-md-6">
                 <div class="footer-item">
                     <h4 class="text-light mb-3">Contact</h4>
-                    <p>Author: Vũ Duy Lê</p>
+                    <p>Author: SE1927</p>
 
                 </div>
             </div>

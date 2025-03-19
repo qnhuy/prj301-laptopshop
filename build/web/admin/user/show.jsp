@@ -1,78 +1,87 @@
-<%@page contentType="text/html" pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>User List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Đảm bảo các nút không bị ẩn */
+        .btn-sm {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>User List</h2>
 
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="Vũ Duy Lê - Dự án laptopshop" />
-        <meta name="author" content="Vũ Duy Lê" />
-        <title>Dashboard - Admin</title>
-
-        <link href="${pageContext.request.contextPath}/resources/admin/css/styles.css" rel="stylesheet" />
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    </head>
-
-    <body class="sb-nav-fixed">
-        <jsp:include page="../layout/header.jsp" />
-        <div id="layoutSidenav">
-            <jsp:include page="../layout/sidebar.jsp" />
-            <div id="layoutSidenav_content">
-                <main>
-                    <div class="container-fluid px-4">
-                        <h1 class="mt-4">Manage Users</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active"><a href="/laptopshop/admin">Dashboard</a> </li>
-                            <li class="breadcrumb-item active">Users</li>
-                        </ol>
-                        <div class="mt-5">
-                            <div class="row">
-                                <div class="col-12 mx-auto">
-                                    <div class="d-flex justify-content-between">
-                                        <h3>Table user</h3>
-                                        <a href="/laptopshop/admin/user/create" class="btn btn-primary">Create new user</a>
-                                    </div>
-                                    <hr />
-                                    <table class="table table-bordered table-hover">
-                                        <thead class="thead-light">
-                                            <tr>
-                                                <th scope="col">ID</th>
-                                                <th scope="col">Email</th>
-                                                <th scope="col">Full Name</th>
-                                                <th scope="col">Role</th>
-                                                
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <c:forEach items="${requestScope.data}" var="user">
-                                                <c:set var="id" value="${user.id}"/>
-                                                <tr>
-                                                    <td>${user.id}</td>
-                                                    <td>${user.email}</td>
-                                                    <td>${user.firstName} ${user.lastName}</td>                                                   
-                                                    <td>${user.roleId == 1 ? 'USER' : (user.roleId == 2 ? 'ADMIN' : '')}</td>
-                                                    
-                                                </tr>
-                                            </c:forEach>
-
-                                        </tbody>
-
-                                    </table>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </main>
-                <jsp:include page="../layout/footer.jsp" />
+        <%-- Hiển thị thông báo --%>
+        <% if (session.getAttribute("message") != null) { %>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <%= session.getAttribute("message") %>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-        </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        crossorigin="anonymous"></script>
-        <script src="${pageContext.request.contextPath}/resources/admin/css/styles.css"></script>
+            <% session.removeAttribute("message"); %>
+        <% } %>
+        <% if (session.getAttribute("error") != null) { %>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <%= session.getAttribute("error") %>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <% session.removeAttribute("error"); %>
+        <% } %>
 
-    </body>
+        <a href="/laptopshop/admin/user/create" class="btn btn-primary mb-3">Create New User</a>
 
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Email</th>
+                    <th>Full Name</th>
+                    <th>Role</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:choose>
+                    <c:when test="${not empty data}">
+                        <c:forEach var="user" items="${data}">
+                            <tr>
+                                <td>${user.id}</td>
+                                <td>${user.email}</td>
+                                <td>${user.firstName} ${user.lastName}</td>
+                                <td>${user.roleId == 1 ? 'User' : 'Admin'}</td>
+                                <td>
+                                    <a href="/laptopshop/admin/user/detail?id=${user.id}" class="btn btn-info btn-sm">View</a>
+                                    <a href="/laptopshop/admin/user/update?id=${user.id}" class="btn btn-warning btn-sm">Update</a>
+                                    <a href="/laptopshop/admin/user/delete?id=${user.id}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete user ${user.id}?');">Delete</a>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                    </c:when>
+                    <c:otherwise>
+                        <tr>
+                            <td colspan="5" class="text-center text-muted">No users found.</td>
+                        </tr>
+                    </c:otherwise>
+                </c:choose>
+            </tbody>
+        </table>
+
+        <%-- Debug thông tin data --%>
+        <c:if test="${empty data}">
+            <p class="text-warning">Debug: Data attribute is empty or null. Check servlet logic.</p>
+        </c:if>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>

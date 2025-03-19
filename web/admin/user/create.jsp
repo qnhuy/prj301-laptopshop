@@ -1,147 +1,91 @@
-<%@page contentType="text/html" pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Create New User</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Create New User</h2>
 
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="Hỏi Dân IT - Dự án laptopshop" />
-        <meta name="author" content="Hỏi Dân IT" />
-        <title>Dashboard - Create User</title>
+        <%-- Hiển thị thông báo --%>
+        <% if (session.getAttribute("message") != null) { %>
+            <div class="alert alert-success"><%= session.getAttribute("message") %></div>
+            <% session.removeAttribute("message"); %>
+        <% } %>
+        <% if (session.getAttribute("error") != null) { %>
+            <div class="alert alert-danger"><%= session.getAttribute("error") %></div>
+            <% session.removeAttribute("error"); %>
+        <% } %>
 
-        <link href="${pageContext.request.contextPath}/resources/admin/css/styles.css" rel="stylesheet" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <form action="/laptopshop/admin/user/create" method="post" enctype="multipart/form-data" id="createUserForm">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" name="password" required minlength="6">
+            </div>
+            <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input type="text" class="form-control" id="firstName" name="firstName" required>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name:</label>
+                <input type="text" class="form-control" id="lastName" name="lastName" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="text" class="form-control" id="phone" name="phone" pattern="[0-9]{10}" title="Phone number must be 10 digits">
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" class="form-control" id="address" name="address">
+            </div>
+            <div class="form-group">
+                <label for="roleName">Role:</label>
+                <select class="form-control" id="roleName" name="roleName">
+                    <option value="USER">User</option>
+                    <option value="ADMIN">Admin</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="avatarFile">Avatar:</label>
+                <input type="file" class="form-control-file" id="avatarFile" name="avatarFile" accept="image/*">
+                <img id="avatarPreview" src="" alt="Avatar Preview" style="max-width: 200px; display: none; margin-top: 10px;">
+            </div>
+            <button type="submit" class="btn btn-primary">Create User</button>
+            <a href="/laptopshop/admin/user" class="btn btn-secondary">Back to User List</a>
+        </form>
+    </div>
 
-        <script>
-            $(document).ready(() => {
-                const avatarFile = $("#avatarFile");
-                avatarFile.change(function (e) {
-                    const imgURL = URL.createObjectURL(e.target.files[0]);
-                    $("#avatarPreview").attr("src", imgURL);
-                    $("#avatarPreview").css({"display": "block"});
-                });
+    <script>
+        $(document).ready(function() {
+            $("#avatarFile").change(function() {
+                const file = this.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        $("#avatarPreview").attr("src", e.target.result).show();
+                    };
+                    reader.readAsDataURL(file);
+                } else {
+                    $("#avatarPreview").hide();
+                }
             });
 
-            function removeImage() {
-                const avatarFile = document.getElementById('avatarFile');
-                const avatarPreview = document.getElementById('avatarPreview');
-
-                // Reset file input
-                avatarFile.value = '';
-
-                // Hide the preview image
-                avatarPreview.style.display = 'none';
-                avatarPreview.src = '';
-            }
-        </script>
-
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
-        crossorigin="anonymous"></script>
-    </head>
-
-    <body class="sb-nav-fixed">
-        <jsp:include page="../layout/header.jsp" />
-        <div id="layoutSidenav">
-            <jsp:include page="../layout/sidebar.jsp" />
-            <div id="layoutSidenav_content">
-                <main>
-                    <div class="container-fluid px-4">
-                        <h1 class="mt-4">Manage Users</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active"><a href="/laptopshop/admin">Dashboard</a> </li>
-                            <li class="breadcrumb-item active"><a href="/laptopshop/admin/user">Users</a> </li>
-                            <li class="breadcrumb-item active">Create User</li>
-                        </ol>
-                        <div class="mt-5">
-                            <div class="row">
-                                <div class="col-md-6 col-12 mx-auto">
-                                    <h3>Create a user</h3>
-                                    <hr />
-                                    <form method="post" action="create"
-                                          class="row" enctype="multipart/form-data">
-
-                                        <div class="mb-3 col-12 col-md-6">
-
-                                            <label class="form-label">Email:</label>
-                                            <input type="email"
-                                                   class="form-control"
-                                                   name="email" />
-
-                                        </div>
-                                        <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label">Password:</label>
-                                            <input type="password"
-                                                   class="form-control"
-                                                   name="password" />
-                                        </div>
-                                        <div class="mb-3 col-12 col-md-6">
-
-                                            <label class="form-label">First Name:</label>
-                                            <input type="text"
-                                                   class="form-control "
-                                                   name="firstName" />
-
-                                        </div>
-                                        <div class="mb-3 col-12 col-md-6">
-
-                                            <label class="form-label">Last Name:</label>
-                                            <input type="text"
-                                                   class="form-control "
-                                                   name="lastName" />
-
-                                        </div>
-                                        
-                                        <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label">Phone number:</label>
-                                            <input type="text" class="form-control" name="phone" />
-                                        </div>
-                                        
-                                        
-                                        <div class="mb-3">
-                                            <label class="form-label">Address:</label>
-                                            <input type="text" class="form-control" name="address" />
-                                        </div>
-                                        <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label">Role:</label>
-                                            <select class="form-select" name="roleName">
-                                                <option value="USER">USER</option>
-                                                <option value="ADMIN">ADMIN</option>
-                                            </select>
-                                        </div>
-                                        <div class="mb-3 col-12 col-md-6">
-                                            <label for="avatarFile" class="form-label">Avatar:</label>
-                                            <input class="form-control" type="file" id="avatarFile"
-                                                   accept=".png, .jpg, .jpeg" name="avatarFile" />
-                                        </div>
-                                        <div class="col-12 mb-3">
-                                            <img style="max-height: 250px; display: none;"
-                                                 alt="avatar preview" id="avatarPreview" />
-                                        </div>
-                                        <div class="col-12 mb-3">
-                                            <button type="button" class="btn btn-success" onclick="removeImage()">Remove Image</button>
-                                        </div>
-                                        <div class="col-12 mb-5">
-                                            <button type="submit" class="btn btn-primary">Create</button>
-                                        </div>
-
-                                    </form>
-                                </div>
-
-                            </div>
-
-                        </div>
-                    </div>
-                </main>
-                <jsp:include page="../layout/footer.jsp" />
-            </div>
-        </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        crossorigin="anonymous"></script>
-        <script src="${pageContext.request.contextPath}/resources/admin/js/scripts.js"></script>
-
-    </body>
-
+            $("#createUserForm").submit(function(e) {
+                const password = $("#password").val();
+                if (password.length < 6) {
+                    alert("Password must be at least 6 characters.");
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+</body>
 </html>
