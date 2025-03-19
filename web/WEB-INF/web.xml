@@ -8,7 +8,7 @@
         <servlet-name>DeleteCartItem</servlet-name>
         <url-pattern>/deletecart</url-pattern>
     </servlet-mapping>
-    
-    
-
+    <welcome-file-list>
+        <welcome-file>homepage</welcome-file> 
+    </welcome-file-list>  
 </web-app>

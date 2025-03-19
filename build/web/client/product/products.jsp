@@ -153,11 +153,11 @@
                         </div>
 
                         <div class="d-flex m-3 me-0">
-<!--                            <button
-                                class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4"
-                                data-bs-toggle="modal" data-bs-target="#searchModal">
-                                <i class="fas fa-search text-primary"></i>
-                            </button>-->
+                            <!--                            <button
+                                                            class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4"
+                                                            data-bs-toggle="modal" data-bs-target="#searchModal">
+                                                            <i class="fas fa-search text-primary"></i>
+                                                        </button>-->
 
                             <a href="/laptopshop/cart" class="position-relative me-4 my-auto">
                                 <i class="fa fa-shopping-bag fa-2x"></i>
@@ -181,12 +181,12 @@
                             <!-- Nếu người dùng đã đăng nhập -->
                             <div class="dropdown my-auto">
                                 <a href="#" class="dropdown-toggle" id="dropdownUserMenu" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Chào bạn, ${sessionScope.user.lastName}
+                                    <i class="fas fa-user fa-lg"></i> <!-- Icon người dùng từ Font Awesome -->
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownUserMenu">
-                                    <li><a class="dropdown-item" href="/laptopshop/order">My order </a></li>
-                                    <li><a class="dropdown-item" href="/laptopshop/profile">Profile </a></li>
-                                    <li><a class="dropdown-item" href="/laptopshop/logout">Đăng xuất</a></li>
+                                    <li><a class="dropdown-item" href="/laptopshop/order">My order</a></li>
+                                    <li><a class="dropdown-item" href="/laptopshop/profile">Profile</a></li>
+                                    <li><a class="dropdown-item" href="/laptopshop/logout">Logout</a></li>
                                 </ul>
                             </div>
                             <% } else { %>
