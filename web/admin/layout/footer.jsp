@@ -3,7 +3,7 @@
 <footer class="py-4 bg-light mt-auto">
     <div class="container-fluid px-4">
         <div class="d-flex align-items-center justify-content-between small">
-            <div class="text-muted">Copyright &copy; Vũ Duy Lê</div>
+            <div class="text-muted">Copyright &copy: SE1927</div>
             <div>
                 <a href="https://www.facebook.com/profile.php?id=100039947165018" target="_blank">Facebook</a>
                 &middot;

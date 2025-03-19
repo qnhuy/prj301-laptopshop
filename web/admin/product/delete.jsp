@@ -7,8 +7,8 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="Vũ Duy Lê - Dự án laptopshop" />
-        <meta name="author" content="Vũ Duy Lê" />
+        <meta name="description" content="SE1927 - Dự án laptopshop" />
+        <meta name="author" content="SE1927 - PRJ301" />
         <title>Delete product - ${id}</title>
 
         <link href="${pageContext.request.contextPath}/resources/admin/css/styles.css" rel="stylesheet" />

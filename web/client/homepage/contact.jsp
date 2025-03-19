@@ -82,13 +82,7 @@
                                 <p class="mb-4">Nếu quý khách có thắc mắc hay câu hỏi gì vui lòng liên hệ thông tin dưới đây.<a class="d-flex justify-content-center" href="https://www.facebook.com/profile.php?id=100039947165018">Nhắn tin ngay</a>.</p>
                             </div>
                         </div>
-                        <div class="col-lg-12">
-                            <div class="h-100 rounded">
-                                <iframe class="rounded w-100" 
-                                        style="height: 400px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3709.9494055000687!2d105.52350832515278!3d21.012741688328763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abc60e7d3f19%3A0x2be9d7d0b5abcbf4!2sFPT%20University!5e1!3m2!1sen!2s!4v1729099205017!5m2!1sen!2s" 
-                                        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                            </div>
-                        </div>
+                       
                         <div class="col-lg-7">
                             <img style="width: auto; height: 400px" src="${pageContext.request.contextPath}/resources/client/img/banner.jpg" class="img-fluid w-100 rounded" alt="">
                         </div>
@@ -104,14 +98,14 @@
                                 <i class="fas fa-envelope fa-2x text-primary me-4"></i>
                                 <div>
                                     <h4>Mail Us</h4>
-                                    <p class="mb-2">levdhe187349@gmail.com</p>
+                                    <p class="mb-2">laptoppro@gmail.com</p>
                                 </div>
                             </div>
                             <div class="d-flex p-4 rounded bg-white">
                                 <i class="fa fa-phone-alt fa-2x text-primary me-4"></i>
                                 <div>
                                     <h4>Telephone</h4>
-                                    <p class="mb-2">(+84) 822 317 904</p>
+                                    <p class="mb-2">(+84) 349 833 922</p>
                                 </div>
                             </div>
                         </div>

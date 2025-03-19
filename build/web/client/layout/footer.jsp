@@ -47,7 +47,7 @@
                     <h4 class="text-light mb-3">Contact</h4>
                     <p><i class="fas fa-map-marker-alt"></i> Khu CNC Hòa Lạc, TP.Hà Nội</p>
                     <p><i class="fas fa-phone"></i> 0963 384 293</p>
-                    <p><i class="fas fa-envelope"></i> support@laptopshop.com</p>                
+                    <p><i class="fas fa-envelope"></i> support@laptopshop.com</p>          
                 </div>
             </div>
         </div>
