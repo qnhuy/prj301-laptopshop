@@ -234,12 +234,12 @@ sup {
 }
 
 a {
-    color: #81c408;
+    color: #00E0C7;
     text-decoration: none
 }
 
 a:hover {
-    color: #679d06
+    color: #009394
 }
 
 a:not([href]):not([class]),
@@ -2268,9 +2268,9 @@ progress {
 .form-control:focus {
     color: #747d88;
     background-color: #fff;
-    border-color: #c0e284;
+    border-color: #00E0C7;
     outline: 0;
-    box-shadow: 0 0 0 .25rem rgba(129, 196, 8, .25)
+    box-shadow: 0 0 0 .25rem rgba(0, 143, 127, 0.1);
 }
 
 .form-control::-webkit-date-and-time-value {
@@ -3127,7 +3127,7 @@ textarea.form-control.is-invalid {
 .btn-check:focus+.btn,
 .btn:focus {
     outline: 0;
-    box-shadow: 0 0 0 .25rem rgba(129, 196, 8, .25)
+    box-shadow: 0 0 0 .25rem rgba(0, 143, 127, 0.4)
 }
 
 .btn:disabled,
@@ -3145,8 +3145,8 @@ fieldset:disabled .btn {
 
 .btn-primary:hover {
     color: #000;
-    background-color: #94cd2d;
-    border-color: #8eca21
+    background-color: #009392;
+    border-color: #00E0C7;
 }
 
 .btn-check:focus+.btn-primary,
@@ -5239,8 +5239,8 @@ fieldset:disabled .btn {
 .page-item.active .page-link {
     z-index: 3;
     color: #fff;
-    background-color: #81c408;
-    border-color: #81c408
+    background-color: #009394;
+    border-color: #009394;
 }
 
 .page-item.disabled .page-link {
@@ -5897,7 +5897,7 @@ fieldset:disabled .btn {
 
 .btn-close:focus {
     outline: 0;
-    box-shadow: 0 0 0 .25rem rgba(129, 196, 8, .25);
+    box-shadow: 0 0 0 .25rem rgba(0, 143, 127, 0.4);
     opacity: 1
 }
 
@@ -7367,11 +7367,11 @@ fieldset:disabled .btn {
 }
 
 .border-primary {
-    border-color: #81c408 !important
+    border-color: #009392 !important
 }
 
 .border-secondary {
-    border-color: #ffb524 !important
+    border-color: #009394 !important
 }
 
 .border-success {
@@ -8344,11 +8344,11 @@ fieldset:disabled .btn {
 }
 
 .text-primary {
-    color: #81c408 !important
+    color: #00E0C7 !important
 }
 
 .text-secondary {
-    color: #ffb524 !important
+    color: #009394 !important
 }
 
 .text-success {
@@ -8404,7 +8404,7 @@ fieldset:disabled .btn {
 }
 
 .bg-secondary {
-    background-color: #ffb524 !important
+    background-color: #009394 !important
 }
 
 .bg-success {

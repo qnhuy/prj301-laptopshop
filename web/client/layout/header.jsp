@@ -49,12 +49,12 @@
                     <!-- Nếu người dùng đã đăng nhập -->
                     <div class="dropdown my-auto">
                         <a href="#" class="dropdown-toggle" id="dropdownUserMenu" data-bs-toggle="dropdown" aria-expanded="false">
-                            Chào bạn, ${sessionScope.user.lastName}
+                            <i class="fas fa-user fa-lg"></i> <!-- Icon người dùng từ Font Awesome -->
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownUserMenu">
-                            <li><a class="dropdown-item" href="/laptopshop/order">My order </a></li>
-                            <li><a class="dropdown-item" href="/laptopshop/profile">Profile </a></li>
-                            <li><a class="dropdown-item" href="/laptopshop/logout">Đăng xuất</a></li>
+                            <li><a class="dropdown-item" href="/laptopshop/order">My order</a></li>
+                            <li><a class="dropdown-item" href="/laptopshop/profile">Profile</a></li>
+                            <li><a class="dropdown-item" href="/laptopshop/logout">Logout</a></li>
                         </ul>
                     </div>
                     <% } else { %>
