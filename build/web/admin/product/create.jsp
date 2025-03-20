@@ -167,14 +167,14 @@
                                         </div>
 
                                         <!-- Detail Description -->
-                                        <div class="mb-3">
+<!--                                        <div class="mb-3">
                                             <label class="form-label">Detail description:</label>
                                             <textarea class="form-control" id="detailDesc" name="detailDesc" rows="3"
                                                       style="resize: vertical; max-height: 200px;"></textarea>
                                             <script>
-            CKEDITOR.replace('detailDesc'); // Kích hoạt CKEditor cho textarea
+                                                CKEDITOR.replace('detailDesc'); // Kích hoạt CKEditor cho textarea
                                             </script>     
-                                        </div>
+                                        </div>-->
 
                                         <!-- Images -->
                                         <div class="mb-3 col-12 col-md-6">
@@ -193,9 +193,10 @@
                                             </select>
                                         </div>
 
-                                        <div class="col-12 mb-3">
+                                        <!-- Avatar Preview -->
+<!--                                        <div class="col-12 mb-3">
                                             <img style="max-height: 250px; display: none;" alt="avatar preview" id="avatarPreview" />
-                                        </div>
+                                        </div>-->
 
                                         <!-- Remove Image Button -->
                                         <div class="col-12 mb-3">

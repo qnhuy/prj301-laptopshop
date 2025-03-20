@@ -116,10 +116,10 @@
                                             <input class="form-control" type="file" id="avatarFile"
                                                    accept=".png, .jpg, .jpeg" name="avatarFile" />
                                         </div>
-                                        <div class="col-12 mb-3">
+<!--                                        <div class="col-12 mb-3">
                                             <img style="max-height: 250px; display: none;"
                                                  alt="avatar preview" id="avatarPreview" />
-                                        </div>
+                                        </div>-->
                                         <div class="col-12 mb-3">
                                             <button type="button" class="btn btn-success" onclick="removeImage()">Remove Image</button>
                                         </div>

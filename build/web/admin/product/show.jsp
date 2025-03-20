@@ -59,8 +59,8 @@
                                                     </td>
                                                     <td>${product.factory}</td>
                                                     <td>
-                                                        <a href="/laptopshop/admin/product/detail?id=${id}"
-                                                           class="btn btn-success">View</a>
+<!--                                                        <a href="/laptopshop/admin/product/detail?id=${id}"
+                                                           class="btn btn-success">View</a>-->
                                                         <a href="/laptopshop/admin/product/update?id=${id}"
                                                            class="btn btn-warning mx-2">Update</a>
                                                         

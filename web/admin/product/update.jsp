@@ -176,13 +176,13 @@
                                         </div>
 
                                         <!-- Detail Description -->
-                                        <div class="mb-3">
+<!--                                        <div class="mb-3">
                                             <label class="form-label">Detail description:</label>
                                             <textarea class="form-control" id="detailDesc" name="detailDesc" rows="3" style="resize: vertical; max-height: 200px;">${p.detailDesc}</textarea>
                                             <script>
             CKEDITOR.replace('detailDesc'); // Kích hoạt CKEditor cho textarea
                                             </script>
-                                        </div>
+                                        </div>-->
 
                                         <!-- Các trường khác -->
                                         <input type="hidden" name="image" value="${p.image}" />
@@ -193,19 +193,20 @@
                                             <input class="form-control" type="file" id="avatarFile"
                                                    accept=".png, .jpg, .jpeg" name="productFile" onchange="previewImage(event)" />
                                         </div>
+                                        
                                         <!-- Storage -->
                                         <div class="mb-3 col-12 col-md-6">
                                             <label class="form-label">Storage:</label>
                                             <select class="form-select" name="storage">
                                                 <option value="1" ${p.storage == '1' ? 'selected' : ''}>YES</option>
                                                 <option value="0" ${p.storage == '0' ? 'selected' : ''}>NO</option>
-
                                             </select>
                                         </div>
 
-                                        <div class="col-12 mb-3">
+                                        <!-- Preview image -->
+<!--                                        <div class="col-12 mb-3">
                                             <img style="max-height: 250px; display: block;" alt="avatar preview" id="avatarPreview" src="${pageContext.request.contextPath}/resources/admin/images/product/${p.image}"/>
-                                        </div>
+                                        </div>-->
 
                                         <!-- Remove Image Button -->
                                         <div class="col-12 mb-3">
