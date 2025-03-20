@@ -1,0 +1,48 @@
+# ======== BUILD OUTPUT ========
+# Các thư mục build và file biên dịch
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/out/
+
+# ======== NETBEANS ========
+# Loại bỏ các file cấu hình riêng của NetBeans
+nbproject/private/
+nbproject/metadata/
+# File này thường chứa các cấu hình tự động, không cần theo dõi:
+nbproject/build-impl.xml
+
+# ======== COMPILATION OUTPUT ========
+*.class
+*.jar
+*.war
+*.ear
+
+# ======== MAVEN ========
+# Nếu dự án sử dụng Maven, loại bỏ thư mục target
+/target/
+
+# ======== GRADLE ========
+# Nếu dự án sử dụng Gradle, loại bỏ các thư mục build và các file cấu hình
+.gradle/
+/build/
+
+# ======== IDE SETTINGS ========
+# Loại bỏ các file của IntelliJ IDEA và Eclipse nếu có (dành cho các thành viên làm việc đa IDE)
+/.idea/
+/*.iml
+.classpath
+.project
+.settings/
+
+# ======== LOG FILES ========
+*.log
+
+# ======== OS FILES ========
+.DS_Store
+Thumbs.db
+
+# ======== TEMPORARY FILES ========
+*.tmp
+*.bak
